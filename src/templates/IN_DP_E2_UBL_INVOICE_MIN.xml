@@ -1,0 +1,85 @@
+<?xml-stylesheet type="text/xsl" href="FSO1110A.xsl" ?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:cec="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 UBL-Invoice-2.0.xsd">
+    <cec:UBLExtensions>
+        <cec:UBLExtension>
+            <cec:ExtensionContent>
+                <CategoryCode>A1</CategoryCode>
+            </cec:ExtensionContent>
+        </cec:UBLExtension>
+    </cec:UBLExtensions>
+    <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+    <cbc:ID>#FACNUM#</cbc:ID>
+    <cbc:IssueDate>#DATE_FACTURE#</cbc:IssueDate>
+    <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+    <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+    <cac:OrderReference>
+        <cbc:ID>#NUMERO_ENGAGEMENT#</cbc:ID>
+    </cac:OrderReference>
+    <cac:AdditionalDocumentReference>
+        <cbc:ID>#NOM_FICHIER#</cbc:ID>
+        <cbc:DocumentTypeCode>application/pdf</cbc:DocumentTypeCode>
+        <cbc:DocumentType>01</cbc:DocumentType>
+        <cac:Attachment>
+            <cbc:EmbeddedDocumentBinaryObject mimeCode="application/zip">#FICHIER_FACTURE_ZIP_BASE64#</cbc:EmbeddedDocumentBinaryObject>
+        </cac:Attachment>
+    </cac:AdditionalDocumentReference>
+    <cac:AccountingSupplierParty>
+        <cac:Party>
+            <cac:PartyIdentification>
+                <cbc:ID schemeName="1">#ID_FOURNISSEUR#</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>#NOM_FOURNISSEUR#</cbc:RegistrationName>
+                <cac:RegistrationAddress>
+                    <cac:Country>
+                        <cbc:IdentificationCode>FR</cbc:IdentificationCode>
+                    </cac:Country>
+                </cac:RegistrationAddress>
+            </cac:PartyLegalEntity>
+        </cac:Party>
+    </cac:AccountingSupplierParty>
+    <cac:AccountingCustomerParty>
+        <cac:Party>
+            <cac:PartyIdentification>
+                <cbc:ID schemeName="1">#ID_DESTINATAIRE#</cbc:ID>
+            </cac:PartyIdentification>
+        </cac:Party>
+    </cac:AccountingCustomerParty>
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="EUR">#MONTANT_TAXE#</cbc:TaxAmount>
+        <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="EUR">#MONTANT_HT#</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="EUR">#MONTANT_TAXE#</cbc:TaxAmount>
+            <cbc:Percent>20</cbc:Percent>
+            <cac:TaxCategory>
+                <cac:TaxScheme>
+                    <cbc:TaxTypeCode>TVA12</cbc:TaxTypeCode>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:LegalMonetaryTotal>
+        <cbc:TaxExclusiveAmount currencyID="EUR">#MONTANT_HT#</cbc:TaxExclusiveAmount>
+        <cbc:TaxInclusiveAmount currencyID="EUR">#MONTANT_TTC#</cbc:TaxInclusiveAmount>
+        <cbc:PayableAmount currencyID="EUR">#MONTANT_TTC#</cbc:PayableAmount>
+    </cac:LegalMonetaryTotal>
+    <cac:InvoiceLine>
+        <cbc:ID>1</cbc:ID>
+        <cbc:InvoicedQuantity unitCode="EA">0</cbc:InvoicedQuantity>
+        <cbc:LineExtensionAmount currencyID="EUR">00.0000</cbc:LineExtensionAmount>
+        <cac:Item>
+            <cac:StandardItemIdentification>
+                <cbc:ID>0000</cbc:ID>
+            </cac:StandardItemIdentification>
+            <cac:ClassifiedTaxCategory>
+                <cbc:Percent>0</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:TaxTypeCode>TVA</cbc:TaxTypeCode>
+                </cac:TaxScheme>
+            </cac:ClassifiedTaxCategory>
+        </cac:Item>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">00.0000</cbc:PriceAmount>
+        </cac:Price>
+    </cac:InvoiceLine>
+</Invoice>

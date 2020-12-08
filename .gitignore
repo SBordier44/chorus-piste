@@ -1,0 +1,7 @@
+.idea
+.idea_modules/
+composer.phar
+/vendor/
+composer.lock
+temp/*
+.env
