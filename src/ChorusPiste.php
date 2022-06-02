@@ -11,7 +11,7 @@ class ChorusPiste
 {
     public const AUTH_SANDBOX_URL = 'https://sandbox-oauth.piste.gouv.fr/api/oauth/token';
     public const AUTH_PRODUCTION_URL = 'https://oauth.piste.gouv.fr/api/oauth/token';
-    public const API_SANDBOX_URL = 'https://sandbox-oauth.piste.gouv.fr';
+    public const API_SANDBOX_URL = 'https://sandbox-api.piste.gouv.fr';
     public const API_PRODUCTION_URL = 'https://api.piste.gouv.fr';
 
     /** @var Client $client */
