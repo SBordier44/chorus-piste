@@ -37,6 +37,9 @@ class ChorusPiste
         $auth = $authClient->post(
             $sandbox ? self::AUTH_SANDBOX_URL : self::AUTH_PRODUCTION_URL,
             [
+                'headers' => [
+                    'Content-Type' => 'application/x-www-form-urlencoded'
+                ],
                 'form_params' => [
                     'grant_type' => 'client_credentials',
                     'client_id' => $client_id,
